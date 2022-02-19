@@ -121,10 +121,9 @@ class FictionalDriver implements SocialDriverInterface
      */
     protected function registerToken(): string
     {
-        //Todo: retrieve current user data from  an auth service stub
         $userData = [
-            'email' => 'your@email.address',
-            'name'  => 'YourName',
+            'email' =>  $_ENV['CURRENT_USER_MAIL'],
+            'name'  =>  $_ENV['CURRENT_USER_NAME'],
         ];
 
         $response = $this->client->authRequest(self::REGISTER_TOKEN_URI, $userData);
